@@ -16,4 +16,11 @@ public class ChartLine {
 	public String getName(){
 		return name;
 	}
+	public int getAvg(){
+		int sum = 0;
+		for(Integer i:data){
+			sum+=i;
+		}
+		return sum/=data.size();
+	}
 }

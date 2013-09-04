@@ -41,4 +41,12 @@ public class ChartData {
 	public String getTitle() {
 		return title;
 	}
+	
+	public String getAllAvg(){
+		StringBuilder sb = new StringBuilder();
+		for(ChartLine cl: chartLineList){
+			sb.append(cl.getName()+":"+cl.getAvg()).append(" ");
+		}
+		return sb.toString();
+	}
 }
