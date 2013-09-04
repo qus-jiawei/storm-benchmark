@@ -2,6 +2,7 @@ package lib;
 
 import java.io.File;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import com.google.common.collect.Lists;
@@ -31,6 +32,7 @@ public class Helper {
 					re.add(fileToDisplay(t));
 				}
 			}
+			Collections.sort(re);
 			return re;
 		}
 		return null;
