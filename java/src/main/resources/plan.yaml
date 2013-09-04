@@ -1,0 +1,30 @@
+########### These MUST be filled in for a storm configuration
+storm.test.plan.list:
+    - cn.uc.storm.test.StormLatency
+
+#配置文件约定  
+# 参数:test名称.参数名称.list 
+# BaseTest会自动将多个参数进行循环测试.
+# 测试结果文件使用这个格式命名.${test名称}_${参数}_${参数值}_..._${参数}_${参数值}.csv
+
+#stormlatency测试配置
+cn.uc.storm.test.StormLatency.step.list:
+    - 1
+    - 2
+    - 3
+cn.uc.storm.test.StormLatency.size.list:
+    - 1
+    - 10
+    - 50
+    - 100
+cn.uc.storm.test.StormLatency.worker.list:
+    - 5
+cn.uc.storm.test.StormLatency.para.list:
+    - 1
+cn.uc.storm.test.StormLatency.pending.list:
+    - 200
+    - 300
+    - 500
+
+    
+    
