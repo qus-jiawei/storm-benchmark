@@ -30,13 +30,13 @@ public abstract class ChartDataBuilder {
 			br = new BufferedReader(new FileReader(filePath));
 			String line = null;
 			int i = 0;
-			while ((line = br.readLine()) != null && i < xAxisNumber) {
+			while ((line = br.readLine()) != null && i < xAxisNumber+Helper.skip) {
 				String[] fields = line.split(",");
 				if (i >= Helper.skip) {
 					if (fieldNumber < fields.length) {
 						oneLine.addData(this.valueOf(fields[fieldNumber]));
 					} else {
-						oneLine.addData(null);
+						oneLine.addData(0);
 					}
 				}
 				i++;
