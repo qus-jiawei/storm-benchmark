@@ -23,4 +23,14 @@ public class ChartLine {
 		}
 		return sum/=data.size();
 	}
+	public double getVariance() {
+		int avg = getAvg();
+		double tempSum = 0.0;
+		for(Integer i:data){
+			int temp = (i-avg)*(i-avg);
+			tempSum+=temp;
+		}
+		tempSum/=(double)(data.size());
+		return Math.sqrt(tempSum);
+	}
 }
