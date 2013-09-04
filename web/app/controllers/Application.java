@@ -26,7 +26,13 @@ public class Application extends Controller {
 		ChartDataBuilder builder = new ChartDataBuilder() {
 			@Override
 			public Integer valueOf(String temp) {
-				return Integer.valueOf(temp);
+				try{
+					return Integer.valueOf(temp);
+				}
+				catch(Exception e){
+					e.printStackTrace();
+				}
+				return 0;
 			}
 		};
 		List<String> xAxis = Lists.newArrayList();
