@@ -34,11 +34,11 @@ public class StormLatency implements BaseTest {
 	
 	@Override
 	public void init(Map conf){
-		step = Utils.get(conf, "step", 1);
-		size = Utils.get(conf, "size", 1);
-		worker = Utils.get(conf, "worker", 1);
-		parallelism = Utils.get(conf, "para", 1);
-		pending = Utils.get(conf, "pending", 100);
+		step = Helper.getInteger(conf, "step", 1);
+		size = Helper.getInteger(conf, "size", 1);
+		worker = Helper.getInteger(conf, "worker", 1);
+		parallelism = Helper.getInteger(conf, "para", 1);
+		pending = Helper.getInteger(conf, "pending", 100);
 	}
 	@Override
 	public String run(){

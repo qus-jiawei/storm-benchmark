@@ -21,4 +21,12 @@ public class Helper {
 		if("true".equals(map.get("local")))Env.local = true;
 		return map;
 	}
+	static public int getInteger(Map conf,String key,int defaultValue){
+		Object temp = conf.get(key);
+		if( temp!=null ){
+			if(temp instanceof String) return Integer.valueOf((String)temp);
+			else if(temp instanceof Integer) return (Integer)temp;
+		}
+		return defaultValue;
+	}
 }
