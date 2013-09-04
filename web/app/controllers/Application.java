@@ -36,7 +36,7 @@ public class Application extends Controller {
 			}
 		};
 		List<String> xAxis = Lists.newArrayList();
-		for (int i = 0; i < 200; i++) {
+		for (int i = Helper.skip; i < 200; i++) {
 			xAxis.add((i * 100) + "ms");
 		}
 		ChartData tupleChartData = builder.getChartData("tuple处理量", "条",

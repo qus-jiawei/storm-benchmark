@@ -14,7 +14,7 @@ public class Helper {
 	 * 
 	 */
 	static private final String dataDir = "/home/qiujw/storm_test/collect_data";
-
+	static public final int skip = 100;
 	// static private final String dataDir =
 	// "C:/Users/Administrator/Desktop/storm/测试/测试结果";
 
