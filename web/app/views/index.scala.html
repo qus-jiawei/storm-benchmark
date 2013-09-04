@@ -1,0 +1,68 @@
+@(files: List[String],debug: String,tupleCD: lib.ChartData,sizeCD: lib.ChartData
+,avgCD: lib.ChartData,maxCD: lib.ChartData,minCD: lib.ChartData)
+
+@main("Welcome to Play ") {
+    <div class="container-fluid">
+	<div class="row-fluid">
+		<div class="span12">
+			<div class="row-fluid">
+				<div class="span2">
+				</div>
+				<div class="span8">
+					<h3>
+					storm-benchmark
+					</h3>
+					<p>本web界面用于方便地展示通过storm-benchmark测试得出的CSV文件</p>
+					<p>@debug</p>
+					<h5>选择测试数据</h5>
+						
+					<form >
+    					<select id="show-file" data-placeholder="Your Favorite Types of Bear" style="width:700px;" multiple class="chosen-select"
+						name="csv" >
+				           	@for(file <- files) {
+							  <option>@file</option>
+							}
+				          </select>
+				          <button type="submit" class="btn">Submit</button>
+					</form>
+					<script type="text/javascript">
+						$("#show-file").chosen();
+					</script>
+				</div>
+				<div class="span2">
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row-fluid">
+		<div class="span12">
+			<div class="row-fluid">
+				<div class="span6">
+					@linechart("tuplelinechart",tupleCD)
+				</div>
+				
+				<div class="span6">
+					@linechart("sizelinechart",sizeCD)
+				</div>
+			</div>
+			<div class="row-fluid">
+				<div class="span6">
+					@linechart("avglantencylinechart",avgCD)
+				</div>
+				<div class="span6">
+					@linechart("maxlantencylinechart",maxCD)
+				</div>
+			</div>
+			<div class="row-fluid">
+				<div class="span6">
+					@linechart("minlantencylinechart",minCD)
+				</div>
+				
+				<div class="span6">
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+    
+}

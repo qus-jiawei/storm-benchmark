@@ -1,0 +1,21 @@
+@(title: String)(content: Html)
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>@title</title>
+        <script type="text/javascript" src="@routes.Assets.at("javascripts/jquery.js")"></script>
+	 	<script type="text/javascript" src="@routes.Assets.at("javascripts/bootstrap.js")"></script>
+	  	<script type="text/javascript" src="@routes.Assets.at("javascripts/highchart/js/highcharts.js")"></script>
+	  	<script type="text/javascript" src="@routes.Assets.at("javascripts/highchart/js/modules/exporting.js")"></script>
+	  	<script type="text/javascript" src="@routes.Assets.at("chosen/chosen.jquery.js")"></script>
+	  	<script type="text/javascript" src="@routes.Assets.at("chosen/chosen.proto.js")"></script>
+	  	<link href="@routes.Assets.at("stylesheets/bootstrap.css")" rel="stylesheet">
+	  	<link href="@routes.Assets.at("chosen/chosen.css")" rel="stylesheet">
+	  	<link href="@routes.Assets.at("chosen/chosen-sprite.png")"  >
+    </head>
+    <body>
+        @content
+    </body>
+</html>

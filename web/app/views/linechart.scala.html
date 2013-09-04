@@ -1,0 +1,56 @@
+@(id: String,chart: lib.ChartData)
+
+<div id=@id >
+</div>
+<script type="text/javascript">
+        $(function () {
+                $('#@id').highcharts({
+                    chart: {
+                        type: 'line'
+                    },
+                    title: {
+                        text: '@chart.getTitle()',
+                        x: -20 //center
+                    },
+                    subtitle: {
+                        text: ' ',
+                        x: -20
+                    },
+                    xAxis: {
+                        categories:  @Html(chart.getXAxisJson()),
+                        labels:{ 
+                            step:4
+                        },
+                    	tickInterval: 5
+                    },
+                    yAxis: {
+                        title: {
+                            text: ' '
+                        },
+                        min: 0 ,
+                        plotLines: [{
+                            value: 0,
+                            width: 1,
+                            color: '#808080'
+                        }]
+                    },
+                    tooltip: {
+                    	shared: true,
+                        valueSuffix: '@chart.getValueSuffix()'
+                    },
+                    plotOptions: {
+                        line: {
+                            marker: {
+                                radius: 1
+                            }
+                        }
+                    },
+                    credits: {
+                        text: 'myhadoop',
+                        href: 'http://github.com/zouhc/MyHadoop'
+                   },
+
+                    series: @Html(chart.getSeriesJson())
+            });
+        });
+</script>
