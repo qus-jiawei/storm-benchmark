@@ -38,7 +38,7 @@ public class StormLatency implements BaseTest {
 		size = Utils.get(conf, "size", 1);
 		worker = Utils.get(conf, "worker", 1);
 		parallelism = Utils.get(conf, "para", 1);
-		pending = Utils.get(conf, "pending", 1);
+		pending = Utils.get(conf, "pending", 100);
 	}
 	@Override
 	public String run(){
