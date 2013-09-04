@@ -42,11 +42,11 @@ public class ChartData {
 		return title;
 	}
 	
-	public String getAllAvg(){
-		StringBuilder sb = new StringBuilder();
+	public List<String> getAllAvg(){
+		List<String> re = Lists.newArrayList();
 		for(ChartLine cl: chartLineList){
-			sb.append(cl.getName()+":"+cl.getAvg()).append(" ");
+			re.add(cl.getName()+":"+cl.getAvg());
 		}
-		return sb.toString();
+		return re;
 	}
 }
