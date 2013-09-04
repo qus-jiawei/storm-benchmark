@@ -45,7 +45,7 @@ public class ChartData {
 	public List<String> getAllAvg(){
 		List<String> re = Lists.newArrayList();
 		for(ChartLine cl: chartLineList){
-			re.add(cl.getName()+":"+cl.getAvg()+","+cl.getVariance());
+			re.add(cl.getName()+":"+cl.getAvg()+" , "+cl.getVariance());
 		}
 		return re;
 	}
