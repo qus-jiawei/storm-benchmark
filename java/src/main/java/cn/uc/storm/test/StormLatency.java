@@ -32,6 +32,7 @@ public class StormLatency implements BaseTest {
 	private int worker;
 	private int parallelism;
 	private int pending;
+	private int acker;
 	
 	@Override
 	public void init(Map conf){
@@ -40,10 +41,12 @@ public class StormLatency implements BaseTest {
 		worker = Helper.getInteger(conf, "worker", 1);
 		parallelism = Helper.getInteger(conf, "para", 1);
 		pending = Helper.getInteger(conf, "pending", 100);
+		acker = Helper.getInteger(conf, "acker", 1);
 	}
 	@Override
 	public String run(){
-		String testState = "StormLatency"+"_step-"+step+"_size-"+size+"_worker-"+worker+"_para-"+parallelism+"_pending-"+pending;
+		String testState = "StormLatency"+"_step-"+step+"_size-"+size+"_worker-"+worker
+				+"_para-"+parallelism+"_pending-"+pending+"_acker-"+acker;
 //		int step = params.getInt("step",1);
 		
 		TopologyBuilder builder = new TopologyBuilder();
@@ -67,11 +70,13 @@ public class StormLatency implements BaseTest {
 		conf.put(Env.dataSize, size);
 		conf.put(Config.TOPOLOGY_WORKERS, worker);
 		conf.put(Env.logPrefix, testState+"_");
+		conf.put(Config.TOPOLOGY_ACKER_EXECUTORS, acker);
+		
 		String topologyId = testState;
 		Env.sumbitTopology(topologyId, conf , builder.createTopology());
 		Helper.printTopology(topologyId);
-		return topologyId;
 		
+		return topologyId;
 	}
 	
 	@Override
