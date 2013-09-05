@@ -1,6 +1,7 @@
 ########### These MUST be filled in for a storm configuration
 storm.test.plan.list:
-    - cn.uc.storm.test.StormLatency
+	 - cn.uc.storm.test.StormTridentWordCount
+#    - cn.uc.storm.test.StormLatency
 
 #配置文件约定  
 # 参数:test名称.参数名称.list 
@@ -26,5 +27,16 @@ cn.uc.storm.test.StormLatency.pending.list:
     - 300
     - 500
 
-    
+#StormTridentWordCount
+cn.uc.storm.test.StormTridentWordCount.batch.list:
+    - 1
+    - 10
+    - 100
+cn.uc.storm.test.StormTridentWordCount.spout.list:
+    - 1
+cn.uc.storm.test.StormTridentWordCount.worker.list:
+    - 5
+cn.uc.storm.test.StormTridentWordCount.agg.list:
+    - 1
+    - 2
     
