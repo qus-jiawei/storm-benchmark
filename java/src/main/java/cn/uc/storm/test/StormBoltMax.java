@@ -41,7 +41,7 @@ public class StormBoltMax implements BaseTest {
 	}
 	@Override
 	public String run(){
-		String testState = "StormLatency"+"_spout-"+spout+"_worker-"+worker+"_para-"+parallelism+"_pending-"+pending;
+		String testState = "StormBoltMax"+"_spout-"+spout+"_worker-"+worker+"_para-"+parallelism+"_pending-"+pending;
 //		int step = params.getInt("step",1);
 		
 		TopologyBuilder builder = new TopologyBuilder();
