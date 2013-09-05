@@ -46,7 +46,7 @@ public class StormBoltMax implements BaseTest {
 		
 		TopologyBuilder builder = new TopologyBuilder();
 		String spoutId = "memspout";
-		builder.setSpout(spoutId, new MemSpout(),1);
+		builder.setSpout(spoutId, new MemSpout(),spout);
 		String pre = spoutId;
 		builder.setBolt("bolt1", new PassBolt(),parallelism).shuffleGrouping(pre);
 		
