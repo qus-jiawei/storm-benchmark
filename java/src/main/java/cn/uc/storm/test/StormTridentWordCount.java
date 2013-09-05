@@ -46,7 +46,7 @@ public class StormTridentWordCount implements BaseTest {
 
 	@Override
 	public String run() {
-		String testState = "StormTridentWordCount"+"_batch-"+batch+"_spout-"+agg+"_agg-"+worker+"_worker-"+worker;
+		String testState = "StormTridentWordCount"+"_batch-"+batch+"_spout-"+spout+"_agg-"+agg+"_worker-"+worker;
 
 		TridentTopology topology = new TridentTopology();        
         TridentState wordCounts =
