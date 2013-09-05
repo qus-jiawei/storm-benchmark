@@ -17,6 +17,7 @@ public class AutoFlush extends TimerTask {
 	private long usingTime;
 	private long tupleNumber;
 	private long max, min;
+	private long maxMsgId;
 	private int totalSize;
 	private AtomicBoolean flushing = new AtomicBoolean();
 	private Timer timer;
@@ -51,7 +52,10 @@ public class AutoFlush extends TimerTask {
 		if (using < min)
 			min = using;
 	}
-
+	public void updateMsgId(long msgId) {
+		maxMsgId = msgId;
+	}
+	
 	public void count(long msgId, long using, int size) {
 		if(finish) return;
 		if (flushing.get()) {
@@ -73,7 +77,7 @@ public class AutoFlush extends TimerTask {
 		}
 		flushing.set(true);
 		long now = System.currentTimeMillis();
-		long tupleNumberFlush, totalSizeFlush, avgDelay, maxDelay, minDelay;
+		long tupleNumberFlush, totalSizeFlush, avgDelay, maxDelay, minDelay,nowMsgId;
 		synchronized (this) {
 			tupleNumberFlush = this.tupleNumber;
 			totalSizeFlush = this.totalSize;
@@ -83,6 +87,7 @@ public class AutoFlush extends TimerTask {
 				avgDelay = 0;
 			maxDelay = this.max;
 			minDelay = this.min;
+			nowMsgId = this.maxMsgId;
 			initCounter();
 		}
 		flushing.set(false);
@@ -94,6 +99,7 @@ public class AutoFlush extends TimerTask {
 			sb.append(now).append(logSplit).append(tupleNumberFlush).append(logSplit)
 					.append(totalSizeFlush).append(logSplit).append(avgDelay)
 					.append(logSplit).append(maxDelay).append(logSplit).append(minDelay)
+					.append(logSplit).append(nowMsgId)
 					.append("\n");
 			out.write(sb.toString());
 			out.flush();
