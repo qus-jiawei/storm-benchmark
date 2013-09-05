@@ -50,6 +50,7 @@ public class MemSpout extends BaseRichSpout {
 	public void nextTuple() {
 		long now = System.currentTimeMillis();
 		begin.put(msgId, now);
+		autoFlush.updateMsgId(msgId);
 		_collector.emit(new Values(pd), msgId);
 		msgId++;
 	}
