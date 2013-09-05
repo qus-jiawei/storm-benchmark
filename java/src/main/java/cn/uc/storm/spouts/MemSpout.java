@@ -23,7 +23,7 @@ public class MemSpout extends BaseRichSpout {
 	private SpoutOutputCollector _collector;
 	private long msgId = 0;
 	private Map<Long,Long> begin ;
-	private final String fileName = "MemSpout.csv";
+	private String fileName = "MemSpout.csv";
 	private Map _conf;
 	private PassData pd;
 	private int kSize;
@@ -38,6 +38,7 @@ public class MemSpout extends BaseRichSpout {
 		_conf = conf;
 		pd = PassData.getPassData(_conf);
 		kSize = PassData.getPassDataSize(_conf);
+		fileName = "MemSpout"+context.getThisTaskId()+".csv";
 		try {
 			autoFlush = new AutoFlush(Env.getLogPath(_conf, fileName));
 		} catch (IOException e) {
