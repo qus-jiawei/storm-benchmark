@@ -1,6 +1,6 @@
 ########### These MUST be filled in for a storm configuration
 storm.test.plan.list:
-	 - cn.uc.storm.test.StormTridentWordCount
+     - cn.uc.storm.test.StormTridentWordCount
 #    - cn.uc.storm.test.StormLatency
 
 #配置文件约定  
