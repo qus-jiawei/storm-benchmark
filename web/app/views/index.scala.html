@@ -1,5 +1,5 @@
 @(files: List[String],debug: String,tupleCD: lib.ChartData,sizeCD: lib.ChartData
-,avgCD: lib.ChartData,maxCD: lib.ChartData,minCD: lib.ChartData)
+,avgCD: lib.ChartData,maxCD: lib.ChartData,minCD: lib.ChartData,msgCD: lib.ChartData)
 
 @main("Welcome to Play ") {
     <div class="container-fluid">
@@ -74,6 +74,7 @@
 				</div>
 				
 				<div class="span6">
+					@linechart("nowmsglinechart",msgCD)
 				</div>
 			</div>
 		</div>

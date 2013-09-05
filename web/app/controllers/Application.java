@@ -49,9 +49,11 @@ public class Application extends Controller {
 				chosenFileList, 4, xAxis);
 		ChartData minChartData = builder.getChartData("最小处理延迟", "ms",
 				chosenFileList, 5, xAxis);
+		ChartData msgidChartData = builder.getChartData("当前的msgId", "ms",
+				chosenFileList, 6, xAxis);
 		return ok(index.render(Helper.getDataFileList(),
 				Arrays.toString(chosenFileList), tupleChartData, sizeChartData,
-				avgChartData, maxChartData, minChartData));
+				avgChartData, maxChartData, minChartData,msgidChartData));
 	}
 
 	public static Result playhelp() {
