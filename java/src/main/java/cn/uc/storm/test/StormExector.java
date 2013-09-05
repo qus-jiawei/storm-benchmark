@@ -34,7 +34,7 @@ public class StormExector implements BaseTest{
 		builder.setBolt("bolt1",new PassBolt(),1).shuffleGrouping("memspout");
 		
 		Config conf = new Config();
-		
+		conf.put(Config.TOPOLOGY_WORKERS, 5);
 		Env.sumbitTopology("top", conf , builder.createTopology());
 //		Helper.printTopology(topologyId);
 		return "top";

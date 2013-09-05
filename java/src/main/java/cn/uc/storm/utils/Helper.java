@@ -42,23 +42,23 @@ public class Helper {
 	}
 	static public void printTopology(String topologyId){
 		Utils.sleep(1000);
-		Map stormConf = Utils.readStormConfig();
-		Client client = NimbusClient.getConfiguredClient(stormConf).getClient();
-		TopologyInfo temp= null;
-		try {
-			temp = client.getTopologyInfo(topologyId);
-		} catch (NotAliveException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (TException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		if( temp!=null){
-			System.out.println(temp.toString());
-		}
-		else{
-			System.out.println("not found this"+topologyId);
-		}
+//		Map stormConf = Utils.readStormConfig();
+//		Client client = NimbusClient.getConfiguredClient(stormConf).getClient();
+//		TopologyInfo temp= null;
+//		try {
+//			temp = client.getTopologyInfo(topologyId);
+//		} catch (NotAliveException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		} catch (TException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		if( temp!=null){
+//			System.out.println(temp.toString());
+//		}
+//		else{
+//			System.out.println("not found this"+topologyId);
+//		}
 	}
 }
