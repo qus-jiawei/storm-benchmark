@@ -6,8 +6,10 @@ import java.util.Map;
 import org.apache.log4j.Logger;
 import org.apache.thrift7.TException;
 
+import backtype.storm.generated.ExecutorSummary;
 import backtype.storm.generated.Nimbus.Client;
 import backtype.storm.generated.NotAliveException;
+import backtype.storm.generated.TopologyInfo;
 import backtype.storm.utils.NimbusClient;
 import backtype.storm.utils.Utils;
 

@@ -2,6 +2,17 @@ package cn.uc.storm.utils;
 
 import java.util.Map;
 
+import org.apache.thrift7.TException;
+
+import backtype.storm.generated.Bolt;
+import backtype.storm.generated.ExecutorSummary;
+import backtype.storm.generated.NotAliveException;
+import backtype.storm.generated.StormTopology;
+import backtype.storm.generated.Nimbus.Client;
+import backtype.storm.generated.TopologyInfo;
+import backtype.storm.utils.NimbusClient;
+import backtype.storm.utils.Utils;
+
 import com.google.common.collect.Maps;
 
 public class Helper {
@@ -28,5 +39,26 @@ public class Helper {
 			else if(temp instanceof Integer) return (Integer)temp;
 		}
 		return defaultValue;
+	}
+	static public void printTopology(String topologyId){
+		Utils.sleep(1000);
+		Map stormConf = Utils.readStormConfig();
+		Client client = NimbusClient.getConfiguredClient(stormConf).getClient();
+		TopologyInfo temp= null;
+		try {
+			temp = client.getTopologyInfo(topologyId);
+		} catch (NotAliveException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (TException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		if( temp!=null){
+			System.out.println(temp.toString());
+		}
+		else{
+			System.out.println("not found this"+topologyId);
+		}
 	}
 }

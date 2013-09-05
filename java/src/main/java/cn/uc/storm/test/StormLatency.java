@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import backtype.storm.Config;
+import backtype.storm.generated.StormTopology;
 import backtype.storm.topology.TopologyBuilder;
 import backtype.storm.utils.Utils;
 import cn.uc.storm.bolts.PassBolt;
@@ -68,6 +69,7 @@ public class StormLatency implements BaseTest {
 		conf.put(Env.logPrefix, testState+"_");
 		String topologyId = testState;
 		Env.sumbitTopology(topologyId, conf , builder.createTopology());
+		Helper.printTopology(topologyId);
 		return topologyId;
 		
 	}
