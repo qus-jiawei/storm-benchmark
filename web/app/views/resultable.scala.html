@@ -14,6 +14,7 @@
 	    @if(resultList!=null){
 	    @for(result <- resultList){
 	   	 <tr>
+	   		 <td>@result.getName()</td>
 	    	<td>@result.getSum()</td>
 	    	<td>@result.getAvg()</td>
 	    	<td>@result.getVariance()</td>

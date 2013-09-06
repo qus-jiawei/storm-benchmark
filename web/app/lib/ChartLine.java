@@ -61,6 +61,6 @@ public class ChartLine {
 	}
 
 	public ResultTableData getTableData() {
-		return new ResultTableData(getSum(), getAvg(), getVariance());
+		return new ResultTableData(name,getSum(), getAvg(), getVariance());
 	}
 }
