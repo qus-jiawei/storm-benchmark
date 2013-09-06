@@ -70,7 +70,6 @@ public class StormTridentWordCount implements BaseTest {
 		conf.put(Env.logPrefix, testState+"_");
 		String topologyId = testState;
 		Env.sumbitTopology(topologyId, conf , topology.build());
-		Helper.printTopology(topologyId);
 		return topologyId;
 	}
 

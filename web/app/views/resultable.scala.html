@@ -1,0 +1,24 @@
+@(resultList: List[lib.ResultTableData])
+<div>
+	<table class="table">
+	  <thead>
+	    <tr>
+	      <th>文件名</th>
+	      <th>总和</th>
+	      <th>平均</th>
+	      <th>方差</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	    <tr>
+	    @if(resultList!=null){
+	    @for(result <- resultList){
+	    	<td>@result.getSum()</td>
+	    	<td>@result.getAvg()</td>
+	    	<td>@result.getVariance()</td>
+	    }
+	    }
+	    </tr>
+	  </tbody>
+	</table>
+</div>

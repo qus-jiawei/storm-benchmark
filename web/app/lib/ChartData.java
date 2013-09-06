@@ -42,10 +42,10 @@ public class ChartData {
 		return title;
 	}
 	
-	public List<String> getAllAvg(){
-		List<String> re = Lists.newArrayList();
+	public List<ResultTableData> getAllAvg(){
+		List<ResultTableData> re = Lists.newArrayList();
 		for(ChartLine cl: chartLineList){
-			re.add(cl.getName()+":"+cl.getSum()+" "+cl.getAvg()+" , "+cl.getVariance());
+			re.add(cl.getTableData());
 		}
 		return re;
 	}

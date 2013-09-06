@@ -7,37 +7,60 @@ import com.google.common.collect.Lists;
 public class ChartLine {
 	private String name = "default";
 	private List<Integer> data = Lists.newArrayList();
-	public ChartLine(String name){
+
+	public ChartLine(String name) {
 		this.name = name;
 	}
-	public void addData(Integer d){
+
+	public void addData(Integer d) {
 		data.add(d);
 	}
-	public String getName(){
+
+	public String getName() {
 		return name;
 	}
-	public int getSum(){
+
+	public int getSum() {
 		int sum = 0;
-		for(Integer i:data){
-			sum+=i;
+		for (Integer i : data) {
+			sum += i;
 		}
 		return sum;
 	}
-	public int getAvg(){
+
+	public int getAvg() {
 		int sum = 0;
-		for(Integer i:data){
-			sum+=i;
+		int count = 0;
+		for (Integer i : data) {
+			if (i != 0) {
+				sum += i;
+				count++;
+			}
 		}
-		return sum/=data.size();
+		if (count != 0)
+			return sum / count;
+		else
+			return 0;
 	}
+
 	public double getVariance() {
 		int avg = getAvg();
+		int count = 0;
 		double tempSum = 0.0;
-		for(Integer i:data){
-			int temp = (i-avg)*(i-avg);
-			tempSum+=temp;
+		for (Integer i : data) {
+			if (i != 0) {
+				int temp = (i - avg) * (i - avg);
+				tempSum += temp;
+			}
 		}
-		tempSum/=(double)(data.size());
-		return Math.sqrt(tempSum);
+		if (count != 0) {
+			tempSum /= (double) (count);
+			return Math.sqrt(tempSum);
+		} else
+			return 0;
+	}
+
+	public ResultTableData getTableData() {
+		return new ResultTableData(getSum(), getAvg(), getVariance());
 	}
 }

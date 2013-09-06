@@ -90,6 +90,8 @@ public class AutoFlush extends TimerTask {
 			nowMsgId = this.maxMsgId;
 			initCounter();
 		}
+		if(maxDelay == - 1) maxDelay=0;
+		if(minDelay == Long.MAX_VALUE) minDelay=0;
 		flushing.set(false);
 		BufferedWriter out = null;
 		try {

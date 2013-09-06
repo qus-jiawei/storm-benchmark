@@ -74,7 +74,6 @@ public class StormLatency implements BaseTest {
 		
 		String topologyId = testState;
 		Env.sumbitTopology(topologyId, conf , builder.createTopology());
-		Helper.printTopology(topologyId);
 		
 		return topologyId;
 	}
