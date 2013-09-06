@@ -51,6 +51,7 @@ public class ChartLine {
 			if (i != 0) {
 				int temp = (i - avg) * (i - avg);
 				tempSum += temp;
+				count++;
 			}
 		}
 		if (count != 0) {
