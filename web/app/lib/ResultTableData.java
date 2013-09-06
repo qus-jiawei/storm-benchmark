@@ -21,8 +21,8 @@ public class ResultTableData {
 	public int getAvg(){
 		return avg;
 	}
-	public double getVariance(){
-		return variance;
+	public String getVariance(){
+		return String.format("%.2f", variance);
 	}
 
 }
