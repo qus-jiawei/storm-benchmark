@@ -10,15 +10,17 @@
 	    </tr>
 	  </thead>
 	  <tbody>
-	    <tr>
+	    
 	    @if(resultList!=null){
 	    @for(result <- resultList){
+	   	 <tr>
 	    	<td>@result.getSum()</td>
 	    	<td>@result.getAvg()</td>
 	    	<td>@result.getVariance()</td>
-	    }
-	    }
 	    </tr>
+	    }
+	    }
+	    
 	  </tbody>
 	</table>
 </div>
